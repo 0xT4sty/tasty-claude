@@ -70,9 +70,6 @@ log_info "Copiando estructura del framework..."
 # Directorios a copiar
 DIRECTORIOS=(
     "specs"
-    "agentes"
-    "skills"
-    "hooks"
     "scripts"
     ".claude"
 )
@@ -96,7 +93,7 @@ fi
 
 log_info "Configurando permisos de hooks..."
 
-find "${DIR_DESTINO}/hooks" -name "*.py" -type f -exec chmod +x {} \; 2>/dev/null || true
+find "${DIR_DESTINO}/.claude/hooks" -name "*.py" -type f -exec chmod +x {} \; 2>/dev/null || true
 find "${DIR_DESTINO}/scripts" -name "*.sh" -type f -exec chmod +x {} \; 2>/dev/null || true
 
 log_info "Hooks y scripts marcados como ejecutables"
@@ -121,13 +118,13 @@ echo ""
 log_info "Directorio: ${DIR_DESTINO}"
 echo ""
 log_info "Estructura copiada:"
-log_info "  specs/       — Especificaciones SDD"
-log_info "  agentes/     — Definiciones de agentes"
-log_info "  skills/      — Skills reutilizables"
-log_info "  hooks/       — Hooks del ciclo de vida"
-log_info "  scripts/     — Scripts de utilidad"
-log_info "  .claude/     — Configuración de Claude Code"
-log_info "  CLAUDE.md    — Plantilla del proyecto"
+log_info "  .claude/agents/   — Definiciones de agentes"
+log_info "  .claude/skills/   — Skills reutilizables"
+log_info "  .claude/hooks/    — Hooks del ciclo de vida"
+log_info "  .claude/settings.json — Configuración de hooks"
+log_info "  specs/             — Especificaciones SDD"
+log_info "  scripts/           — Scripts de utilidad"
+log_info "  CLAUDE.md          — Plantilla del proyecto"
 echo ""
 log_info "Próximos pasos:"
 log_info "  1. Edita CLAUDE.md con los datos de tu proyecto"

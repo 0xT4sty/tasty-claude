@@ -41,7 +41,7 @@ proyecto.
 
 <!-- [EJEMPLO] Adapta al stack de tu proyecto -->
 - **Lenguaje principal:** Python 3.11+
-- **Hooks:** Python (scripts en `hooks/`)
+- **Hooks:** Python (scripts en `.claude/hooks/`)
 - **Documentación:** Markdown
 - **Commits:** Conventional Commits en español (`feat`, `fix`, `docs`, etc.)
 - **Linting:** py_compile (Python), eslint (JS/TS), json.tool (JSON)
@@ -50,27 +50,27 @@ proyecto.
 
 | Agente          | Archivo                              | Rol                           |
 |-----------------|--------------------------------------|-------------------------------|
-| Orquestador     | `agentes/orquestador.md`             | Descompone y delega tareas    |
-| Diseñador UI    | `agentes/subagentes/disenador-ui.md` | Diseño de interfaces          |
-| Implementador   | `agentes/subagentes/implementador.md`| Implementación de código      |
-| Revisor código  | `agentes/subagentes/revisor-codigo.md`| Revisión obligatoria         |
-| Tester          | `agentes/subagentes/tester.md`       | Generación de tests           |
+| Orquestador     | `.claude/agents/orquestador.md`      | Descompone y delega tareas    |
+| Diseñador UI    | `.claude/agents/disenador-ui.md`     | Diseño de interfaces          |
+| Implementador   | `.claude/agents/implementador.md`    | Implementación de código      |
+| Revisor código  | `.claude/agents/revisor-codigo.md`   | Revisión obligatoria          |
+| Tester          | `.claude/agents/tester.md`           | Generación de tests           |
 
 ## Skills habilitadas
 
-| Skill               | Archivo                       | Propósito                        |
-|---------------------|-------------------------------|----------------------------------|
-| Formato de commits  | `skills/formato-commits.md`   | Conventional commits en español  |
-| Validador de specs  | `skills/validador-specs.md`   | Valida secciones de specs        |
-| Revisión seguridad  | `skills/revision-seguridad.md`| Checklist OWASP Top 10           |
+| Skill               | Archivo                                         | Propósito                        |
+|---------------------|-------------------------------------------------|----------------------------------|
+| Formato de commits  | `.claude/skills/formato-commits/SKILL.md`       | Conventional commits en español  |
+| Validador de specs  | `.claude/skills/validador-specs/SKILL.md`       | Valida secciones de specs        |
+| Revisión seguridad  | `.claude/skills/revision-seguridad/SKILL.md`    | Checklist OWASP Top 10           |
 
 ## Hooks habilitados
 
-| Hook               | Archivo                                | Evento         | Comportamiento     |
-|--------------------|----------------------------------------|----------------|--------------------|
-| Security Gate      | `hooks/pre-tool-use/security-gate.py`  | PreToolUse     | Bloquea si no pasa |
-| Lint al escribir   | `hooks/post-tool-use/lint-al-escribir.py`| PostToolUse  | Solo advierte      |
-| Verificación specs | `hooks/stop/verificacion-specs.py`     | Stop           | Solo advierte      |
+| Hook               | Archivo                                  | Evento         | Comportamiento     |
+|--------------------|------------------------------------------|----------------|--------------------|
+| Security Gate      | `.claude/hooks/security-gate.py`         | PreToolUse     | Bloquea si no pasa |
+| Lint al escribir   | `.claude/hooks/lint-al-escribir.py`      | PostToolUse    | Solo advierte      |
+| Verificación specs | `.claude/hooks/verificacion-specs.py`    | Stop           | Solo advierte      |
 
 Los hooks se configuran en `.claude/settings.json`.
 

@@ -26,7 +26,22 @@ El script copia toda la estructura, configura permisos e inicializa git.
 
 ```
 ├── CLAUDE.md                          # Plantilla de proyecto para Claude Code
-├── .claude/settings.json              # Configuración de hooks
+├── .claude/
+│   ├── settings.json                  # Configuración de hooks
+│   ├── agents/                        # Definiciones de agentes
+│   │   ├── orquestador.md             # Agente principal
+│   │   ├── disenador-ui.md            # Diseño UI/UX
+│   │   ├── implementador.md           # Implementación de código
+│   │   ├── revisor-codigo.md          # Revisión obligatoria
+│   │   └── tester.md                  # Generación de tests
+│   ├── skills/                        # Skills reutilizables
+│   │   ├── formato-commits/SKILL.md   # Conventional commits en español
+│   │   ├── validador-specs/SKILL.md   # Validación de specs
+│   │   └── revision-seguridad/SKILL.md # Checklist OWASP Top 10
+│   └── hooks/                         # Hooks del ciclo de vida
+│       ├── security-gate.py           # Allowlist de comandos shell
+│       ├── lint-al-escribir.py        # Linting automático al escribir
+│       └── verificacion-specs.py      # Verifica cobertura de specs
 ├── specs/                             # Especificaciones SDD (fuente de verdad)
 │   ├── framework.md                   # Spec maestro
 │   ├── orquestador.md                 # Spec del orquestador
@@ -35,24 +50,6 @@ El script copia toda la estructura, configura permisos e inicializa git.
 │       ├── implementador.md
 │       ├── revisor-codigo.md
 │       └── tester.md
-├── agentes/                           # Prompts de agentes
-│   ├── orquestador.md                 # Agente principal
-│   └── subagentes/
-│       ├── disenador-ui.md
-│       ├── implementador.md
-│       ├── revisor-codigo.md
-│       └── tester.md
-├── skills/                            # Skills reutilizables
-│   ├── formato-commits.md             # Conventional commits en español
-│   ├── validador-specs.md             # Validación de specs
-│   └── revision-seguridad.md          # Checklist OWASP Top 10
-├── hooks/                             # Hooks del ciclo de vida
-│   ├── pre-tool-use/
-│   │   └── security-gate.py           # Allowlist de comandos shell
-│   ├── post-tool-use/
-│   │   └── lint-al-escribir.py        # Linting automático al escribir
-│   └── stop/
-│       └── verificacion-specs.py      # Verifica cobertura de specs
 └── scripts/
     └── init-proyecto.sh               # Bootstrap de nuevo proyecto
 ```
@@ -116,16 +113,16 @@ Edita las secciones marcadas con `<!-- [EJEMPLO] -->` para reflejar tu proyecto:
 ### Agregar un nuevo agente
 
 1. Crea su spec en `specs/agentes/mi-agente.md` (secciones: Rol, Entrada, Salida, Restricciones, Seguridad)
-2. Crea su prompt en `agentes/subagentes/mi-agente.md`
-3. Actualiza las reglas de delegación en `agentes/orquestador.md`
+2. Crea su definición en `.claude/agents/mi-agente.md` (con frontmatter YAML: name, description, tools, model)
+3. Actualiza las reglas de delegación en `.claude/agents/orquestador.md`
 
 ### Agregar una nueva skill
 
-Crea un archivo `.md` en `skills/` con: Descripción, Condición de activación, Procedimiento y Salida esperada.
+Crea un directorio en `.claude/skills/mi-skill/` con un archivo `SKILL.md` que contenga: Descripción, Condición de activación, Procedimiento y Salida esperada.
 
 ### Modificar el allowlist de security-gate
 
-Edita la lista `ALLOWLIST` en `hooks/pre-tool-use/security-gate.py` para agregar o quitar patrones de comandos permitidos.
+Edita la lista `ALLOWLIST` en `.claude/hooks/security-gate.py` para agregar o quitar patrones de comandos permitidos.
 
 ## Requisitos
 

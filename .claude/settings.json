@@ -4,7 +4,7 @@
       {
         "matcher": "Bash",
         "hooks": [
-          "python3 hooks/pre-tool-use/security-gate.py"
+          "python3 .claude/hooks/security-gate.py"
         ]
       }
     ],
@@ -12,7 +12,7 @@
       {
         "matcher": "Write|Edit",
         "hooks": [
-          "python3 hooks/post-tool-use/lint-al-escribir.py"
+          "python3 .claude/hooks/lint-al-escribir.py"
         ]
       }
     ],
@@ -20,7 +20,7 @@
       {
         "matcher": "",
         "hooks": [
-          "python3 hooks/stop/verificacion-specs.py"
+          "python3 .claude/hooks/verificacion-specs.py"
         ]
       }
     ]

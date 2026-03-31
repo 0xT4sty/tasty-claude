@@ -33,6 +33,22 @@ Claude Code debe comunicarse siempre en español en este proyecto:
 ```
 claude-code-framework/
 ├── CLAUDE.md
+├── .claude/
+│   ├── settings.json
+│   ├── agents/
+│   │   ├── orquestador.md
+│   │   ├── disenador-ui.md
+│   │   ├── implementador.md
+│   │   ├── revisor-codigo.md
+│   │   └── tester.md
+│   ├── skills/
+│   │   ├── formato-commits/SKILL.md
+│   │   ├── validador-specs/SKILL.md
+│   │   └── revision-seguridad/SKILL.md
+│   └── hooks/
+│       ├── security-gate.py
+│       ├── lint-al-escribir.py
+│       └── verificacion-specs.py
 ├── specs/
 │   ├── framework.md
 │   ├── orquestador.md
@@ -41,25 +57,6 @@ claude-code-framework/
 │       ├── implementador.md
 │       ├── revisor-codigo.md
 │       └── tester.md
-├── agentes/
-│   ├── orquestador.md
-│   └── subagentes/
-│       ├── disenador-ui.md
-│       ├── implementador.md
-│       ├── revisor-codigo.md
-│       └── tester.md
-├── skills/
-│   ├── README.md
-│   ├── formato-commits.md
-│   ├── validador-specs.md
-│   └── revision-seguridad.md
-├── hooks/
-│   ├── pre-tool-use/
-│   │   └── security-gate.py
-│   ├── post-tool-use/
-│   │   └── lint-al-escribir.py
-│   └── stop/
-│       └── verificacion-specs.py
 └── scripts/
     └── init-proyecto.sh
 ```
