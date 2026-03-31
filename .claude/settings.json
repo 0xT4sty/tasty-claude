@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          "python3 hooks/pre-tool-use/security-gate.py"
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          "python3 hooks/post-tool-use/lint-al-escribir.py"
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          "python3 hooks/stop/verificacion-specs.py"
+        ]
+      }
+    ]
+  }
+}
